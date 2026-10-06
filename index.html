@@ -59,6 +59,13 @@
   img{max-width:100%;display:block}
   .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
+  /* ===== شعار أسموزي - كلاسات مشتركة ===== */
+  .logo-smooth{
+    image-rendering:-webkit-optimize-contrast;
+    will-change:transform,filter;
+    transition:all .5s cubic-bezier(.2,.8,.2,1);
+  }
+
   /* ===== شريط تقدم القراءة ===== */
   #progress{
     position:fixed;top:0;right:0;height:3px;width:0;z-index:2000;
@@ -78,8 +85,24 @@
   header.scrolled{padding:4px 0;box-shadow:0 10px 40px rgba(0,0,0,.3)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
   .logo{display:flex;align-items:center;gap:14px}
-  .logo img{height:60px;width:auto;transition:.4s;filter:drop-shadow(0 0 15px rgba(212,175,55,.4))}
-  .logo img:hover{transform:scale(1.05)}
+
+  /* شعار الهيدر */
+  .logo img{
+    height:60px;width:auto;
+    image-rendering:-webkit-optimize-contrast;
+    will-change:transform,filter;
+    transition:all .5s cubic-bezier(.2,.8,.2,1);
+    filter:
+      drop-shadow(0 0 6px rgba(212,175,55,.35))
+      drop-shadow(0 0 18px rgba(212,175,55,.2));
+  }
+  .logo img:hover{
+    transform:scale(1.06);
+    filter:
+      drop-shadow(0 0 10px rgba(212,175,55,.55))
+      drop-shadow(0 0 28px rgba(212,175,55,.3));
+  }
+
   .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
   .nav-links a{color:var(--text);font-size:.92rem;position:relative;transition:.3s;font-weight:500}
   .nav-links a::after{
@@ -158,9 +181,9 @@
   .hero-sub{font-size:1.05rem;color:var(--muted);margin-bottom:36px;max-width:540px;line-height:2}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-  /* عدادات */
+  /* عدادات - عمودين فقط */
   .counters{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:26px;
     margin-top:40px;padding-top:36px;border-top:1px solid var(--card-border);
   }
   .counter{text-align:center}
@@ -178,11 +201,22 @@
     box-shadow:var(--shadow);backdrop-filter:blur(20px);
     text-align:center;
   }
+
+  /* شعار الهيرو الكبير - أسموزي */
   .hero-card .logo-big{
-    width:200px;margin:0 auto 24px;filter:drop-shadow(0 0 30px rgba(212,175,55,.5));
-    animation:floatLogo 4s ease-in-out infinite;
+    width:200px;margin:0 auto 24px;
+    image-rendering:-webkit-optimize-contrast;
+    will-change:transform;
+    filter:
+      drop-shadow(0 0 12px rgba(212,175,55,.4))
+      drop-shadow(0 0 35px rgba(212,175,55,.25));
+    animation:floatLogo 5s ease-in-out infinite;
   }
-  @keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @keyframes floatLogo{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-8px) scale(1.015)}
+  }
+
   .hero-card h3{color:var(--gold-2);font-size:1.4rem;margin-bottom:8px}
   .hero-card p{color:var(--muted);font-size:.9rem;margin-bottom:20px}
   .hero-card ul{list-style:none;display:grid;gap:12px;text-align:right}
@@ -216,7 +250,19 @@
     display:grid;place-items:center;position:relative;overflow:hidden;
     box-shadow:var(--shadow);padding:30px;
   }
-  .about-visual img{width:80%;filter:drop-shadow(0 0 40px rgba(212,175,55,.5));z-index:2}
+
+  /* شعار قسم عن المكتب - أسموزي */
+  .about-visual img{
+    width:80%;z-index:2;
+    image-rendering:-webkit-optimize-contrast;
+    will-change:transform;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1);
+    filter:
+      drop-shadow(0 0 15px rgba(212,175,55,.4))
+      drop-shadow(0 0 45px rgba(212,175,55,.25));
+  }
+  .about-visual:hover img{transform:scale(1.04)}
+
   .about-visual .circle{position:absolute;border-radius:50%;border:1px solid rgba(212,175,55,.2)}
   .about-visual .c1{width:85%;height:85%;animation:spin 30s linear infinite;border-style:dashed}
   .about-visual .c2{width:65%;height:65%;animation:spin 20s linear infinite reverse}
@@ -488,7 +534,16 @@
     background:var(--bg-2);border-top:1px solid var(--card-border);
     padding:50px 0 30px;text-align:center;
   }
-  footer img{height:80px;margin:0 auto 20px;filter:drop-shadow(0 0 20px rgba(212,175,55,.4))}
+
+  /* شعار الفوتر - أسموزي */
+  footer img{
+    height:80px;margin:0 auto 20px;
+    image-rendering:-webkit-optimize-contrast;
+    filter:
+      drop-shadow(0 0 8px rgba(212,175,55,.35))
+      drop-shadow(0 0 25px rgba(212,175,55,.22));
+  }
+
   footer .footer-logo{
     font-family:'Amiri';font-size:1.6rem;color:var(--text);margin-bottom:10px;
     background:linear-gradient(135deg,var(--red),var(--gold-2));
@@ -633,9 +688,9 @@
     section{padding:70px 0}
     .about-visual{max-width:340px;margin:0 auto}
     .hero{padding:110px 0 60px}
-    .counters{grid-template-columns:repeat(3,1fr);gap:12px}
-    .counter b{font-size:1.6rem}
-    .counter span{font-size:.72rem}
+    .counters{grid-template-columns:repeat(2,1fr);gap:16px}
+    .counter b{font-size:1.8rem}
+    .counter span{font-size:.78rem}
     .mission-vision{grid-template-columns:1fr}
     .form-row{grid-template-columns:1fr}
   }
@@ -697,7 +752,6 @@
 
       <div class="counters">
         <div class="counter"><b data-count="15">0</b><span>سنة خبرة</span></div>
-        <div class="counter"><b data-count="500">0</b><span>قضية ناجحة</span></div>
         <div class="counter"><b data-count="100">0</b><span>% سرية تامة</span></div>
       </div>
     </div>
